@@ -6,23 +6,31 @@ import { addErrorToState } from "./helpers";
 export const questInitialState: QuestState = {
     askList: [],
     currAsk: null,
-    currId: null
+    currId: null,
+    loading: false
 }
 
 
-export const searchReducer = createReducer(
+export const questReducer = createReducer(
     questInitialState,
-    on(questActions.init, (state, { askList }): QuestState => ({
+    on(questActions.init, (state): QuestState => ({
         ...state,
-        askList: askList
+        loading: true
+    })),
+    on(questActions.initResult, (state, { askList }): QuestState => ({
+        ...state,
+        askList: askList,
+        loading: false
     })),
     on(questActions.loadAsk, (state, { id }): QuestState => ({
         ...state,
-        currId: id
+        currId: id,
+        loading: true
     })),
     on(questActions.askResult, (state, { ask }): QuestState => ({
         ...state,
-        currAsk: ask
+        currAsk: ask,
+        loading: false
     }))
 
 )

@@ -8,7 +8,7 @@ import { API_URL } from '../api-base-url.token';
 @Injectable({
   providedIn: 'root'
 })
-export class ApiServiceService {
+export class ApiService {
 
   private readonly http = inject(HttpClient)
   private readonly baseUrl = inject(API_URL)

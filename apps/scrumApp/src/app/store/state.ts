@@ -1,9 +1,16 @@
 import { Ask, AskList } from "../models/ask";
+import { routerReducer } from "@ngrx/router-store";
+import { errorReducer } from "./reducers";
 
+export const AppState = {
+   error: errorReducer,
+   router: routerReducer
+}
 export interface QuestState {
     askList: AskList;
     currId: number | null,
-    currAsk: Ask | null
+    currAsk: Ask | null,
+    loading: boolean
 }
 
 export interface ErrorState {

@@ -1,11 +1,12 @@
-import { createActionGroup, props } from "@ngrx/store";
+import { createActionGroup, emptyProps, props } from "@ngrx/store";
 import { Ask, AskList } from "../models/ask";
 import { ErrorInfo } from "./state";
 
 export const questActions = createActionGroup({
     source: 'Search',
     events: {
-        'Init': props<{ askList: AskList }>(),
+        'Init': emptyProps(),
+        'Init Result': props<{ askList: AskList }>(),
         'Load Ask': props<{ id: number }>(),
         'Ask Result': props<{ ask: Ask }>()
     }
