@@ -8,12 +8,17 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/scrumApp",
         "index": "apps/scrumApp/src/index.html",
         "browser": "apps/scrumApp/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js",
+          "@angular/localize/init"
+        ],
         "tsConfig": "apps/scrumApp/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
@@ -22,7 +27,9 @@
             "input": "apps/scrumApp/public"
           }
         ],
-        "styles": ["apps/scrumApp/src/styles.scss"],
+        "styles": [
+          "apps/scrumApp/src/styles.scss"
+        ],
         "scripts": []
       },
       "configurations": {
@@ -65,14 +72,20 @@
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
         "buildTarget": "scrumApp:build"
-      }
+      },
+      "outputPath": "apps/scrumApp/src/locales",
+      "targetFiles": [
+        "messages.it.xlf"
+      ]
     },
     "lint": {
       "executor": "@nx/eslint:lint"
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
         "jestConfig": "apps/scrumApp/jest.config.ts"
       }
@@ -84,6 +97,18 @@
         "port": 4200,
         "staticFilePath": "dist/apps/scrumApp/browser",
         "spa": true
+      }
+    }
+  },
+  "i18n": {
+    "sourceLocale": {
+      "code": "en",
+      "baseHref": "/en/"
+    },
+    "locales": {
+      "it": {
+        "translation": "apps/scrumApp/src/locales/messages.it.xlf",
+        "baseHref": "/it/"
       }
     }
   }

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="tooltip-icon-change-language" datatype="html">
+        <source>Change language</source>
+        <target>Cambia lingua</target>
+      </trans-unit>
+      <trans-unit id="tooltip-icon-change-theme" datatype="html">
+        <source>Change theme</source>
+        <target>Cambia tema</target>
+      </trans-unit>
+      <trans-unit id="route-home" datatype="html">
+        <source>login</source>
+        <target state="new">login</target>
+      </trans-unit>
+      <trans-unit id="label-change-language" datatype="html">
+        <source>Change language</source>
+        <target>Cambia lingua</target>
+      </trans-unit>
+      <trans-unit id="button-reset" datatype="html">
+        <source> Reset </source>
+        <target state="new"> Reset </target>
+      </trans-unit>
+      <trans-unit id="1519954996184640001" datatype="html">
+        <source>Error</source>
+        <target state="new">Errore</target>
+      </trans-unit>
+      <trans-unit id="route-search" datatype="html">
+        <source>search</source>
+        <target state="new">cerca</target>
+      </trans-unit>
+      <trans-unit id="generic-error-message" datatype="html">
+        <source>Something went wrong</source>
+        <target state="new">Qualcosa è andato torto</target>
+      </trans-unit>
+      <trans-unit id="error-bad-request" datatype="html">
+        <source>Bad request</source>
+        <target state="new">Bad request</target>
+      </trans-unit>
+      <trans-unit id="button-search" datatype="html">
+        <source> Search </source>
+        <target state="new"> Cerca </target>
+      </trans-unit>
+      <trans-unit id="button-close" datatype="html">
+        <source> Close </source>
+        <target state="new"> Chiudi </target>
+      </trans-unit>
+      <trans-unit id="button-select" datatype="html">
+        <source> Select </source>
+        <target state="new"> Seleziona </target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

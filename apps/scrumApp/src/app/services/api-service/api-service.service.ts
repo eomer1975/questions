@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { errorPipe } from '../../common/error-handler';
+import { API_URL } from '../api-base-url.token';
 
 @Injectable({
   providedIn: 'root'
