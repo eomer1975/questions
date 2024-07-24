@@ -1,0 +1,83 @@
+html,
+body {
+    height: 100%;
+    /* Assicurati che l'altezza del body sia 100% */
+    margin: 0;
+    /* Rimuove i margini predefiniti del body */
+}
+
+.container {
+    display: flex;
+    /* Imposta il contenitore come un flex container */
+    justify-content: center;
+    /* Centra il contenuto orizzontalmente */
+    align-items: center;
+    /* Centra il contenuto verticalmente */
+}
+
+@media (min-width: 1000px) {
+    .centered-content {
+        /* Stili opzionali per il contenuto centrato */
+        text-align: center;
+        /* Centra il testo all'interno del div */
+        padding: 20px;
+        /* Aggiunge spazio interno al div */
+        background-color: #f0f0f0;
+        /* Colore di sfondo del div */
+        border: 1px solid #ddd;
+        /* Bordo del div */
+        border-radius: 8px;
+        /* Angoli arrotondati del div */
+        width: 60%;
+    }
+}
+
+@media (max-width: 999px) {
+    .centered-content {
+        /* Stili opzionali per il contenuto centrato */
+        text-align: center;
+        /* Centra il testo all'interno del div */
+        padding: 20px;
+        /* Aggiunge spazio interno al div */
+        background-color: #f0f0f0;
+        /* Colore di sfondo del div */
+        border: 1px solid #ddd;
+        /* Bordo del div */
+        border-radius: 8px;
+        /* Angoli arrotondati del div */
+    }
+}
+
+ul {
+    text-align: left;
+    min-height: 350px;
+}
+
+li {
+    font-size: 20px;
+}
+
+.cmd-row {
+    display: flex;
+    justify-content: space-between;
+    /* Spazia i link su tutta la larghezza del contenitore */
+    align-items: center;
+    /* Centra i link verticalmente */
+    padding: 0 20px;
+    /* Aggiunge un po' di spazio ai lati del contenitore */
+    text-align: center;
+    /* Centra il testo dei link */
+}
+
+.cmd-row a {
+    text-decoration: none;
+    /* Rimuove la sottolineatura dai link */
+    color: #007bff;
+    /* Colore del testo del link (puoi cambiarlo) */
+    font-size: 16px;
+    /* Imposta la dimensione del font (puoi cambiarla) */
+}
+
+.md-row a:hover {
+    text-decoration: underline;
+}

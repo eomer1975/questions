@@ -10,7 +10,8 @@ export interface QuestState {
     askList: AskList;
     currId: number | null,
     currAsk: Ask | null,
-    loading: boolean
+    loading: boolean,
+    hideCorrect: boolean
 }
 
 export interface ErrorState {

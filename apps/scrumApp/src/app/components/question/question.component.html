@@ -1,1 +1,20 @@
-<p>question works!</p>
+<h2>Domanda {{(askId$ | async)}}</h2>
+<div class="container">
+    <div class="centered-content">
+        <h3>{{ (ask$ | async)?.text}}</h3>
+        <ul>
+            @for (answer of (ask$ | async)?.answers; track answer.text) {
+            <li><ng-container *ngIf="(hideCorrect$ | async) === false"><input type="checkbox" [checked]="answer.isTrue" /></ng-container> {{ answer.text }}</li>
+            } @empty {
+            <li>Empty list of answers</li>
+            }
+        </ul>
+        <div class="cmd-row">
+            <ng-container *ngIf="askId$ | async as askId">
+                <div><a [routerLink]="['/quest', parseInt(askId.toString()) - 1]">Back</a></div>
+                <div (click)="hideAns()">Show/Hide answers</div>
+                <div><a [routerLink]="['/quest', parseInt(askId.toString()) + 1]">Forward</a></div>
+            </ng-container>
+        </div>
+    </div>
+</div>

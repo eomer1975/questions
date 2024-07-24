@@ -1,6 +1,8 @@
-import { createActionGroup, emptyProps, props } from "@ngrx/store";
+import { createActionGroup, createSelector, emptyProps, props } from "@ngrx/store";
 import { Ask, AskList } from "../models/ask";
 import { ErrorInfo } from "./state";
+import { selectRouter } from "./selectors";
+import { RouterStateUrl } from "../common/router-cutom-serializer";
 
 export const questActions = createActionGroup({
     source: 'Search',
@@ -8,13 +10,15 @@ export const questActions = createActionGroup({
         'Init': emptyProps(),
         'Init Result': props<{ askList: AskList }>(),
         'Load Ask': props<{ id: number }>(),
-        'Ask Result': props<{ ask: Ask }>()
+        'Ask Result': props<{ ask: Ask }>(),
+        'Show Hide Correct': emptyProps()
     }
 })
 
+
 export const ErrorActions = createActionGroup({
-    source: 'Catalogue',
+    source: 'Quest',
     events: {
-       'Catch Http Error': props<{ error: ErrorInfo }>()
+        'Catch Http Error': props<{ error: ErrorInfo }>()
     }
- })
+})
