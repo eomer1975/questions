@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, inject, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, OnDestroy, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { QuestState } from '../../store/state';
 import { questActions } from '../../store/actions';
@@ -23,7 +23,7 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   showCorrect=false;
 
-  constructor(){
+  constructor(private readonly cdr: ChangeDetectorRef){
     //this.store.dispatch(questActions.loadAsk({id: 0}))
   }
 
@@ -31,8 +31,11 @@ export class QuestionComponent implements OnInit, OnDestroy {
     this.subscriptions['routerSelector'] = this.store
       .pipe(select(getCurrentRouteState))
       .subscribe((route: any) => {
+        this.showCorrect = false;
         const questId = route.root.children[0] && route.root.children[0].params && route.root.children[0].params.id || 0;
         this.store.dispatch(questActions.loadAsk({id: questId}))
+        this.store.dispatch(questActions.hideCorrect());
+        this.cdr.markForCheck();
       });
   }
 

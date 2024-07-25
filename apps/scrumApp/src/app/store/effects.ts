@@ -42,6 +42,12 @@ export class QuestEffects {
         { dispatch: false }
     )
 
+    hideCoorect = createEffect(() => this.actions$.pipe(
+        ofType(questActions.hideCorrect)
+    ),
+        { dispatch: false }
+    )
+
     giveAnswer = createEffect(() => this.actions$.pipe(
         ofType(questActions.giveAnswer)
     ),

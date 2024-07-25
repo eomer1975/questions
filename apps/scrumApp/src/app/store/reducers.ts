@@ -40,6 +40,10 @@ export const questReducer = createReducer(
         ...state,
         hideCorrect: !state.hideCorrect
     })),
+    on(questActions.hideCorrect, (state): QuestState => ({
+        ...state,
+        hideCorrect: true
+    })),
     on(questActions.giveAnswer, (state, { value, position }): QuestState => ({
         ...state,
         currAsk: setAnswer(state.currAsk, value, position),
