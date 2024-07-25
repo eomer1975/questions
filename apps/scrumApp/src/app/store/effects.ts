@@ -41,6 +41,12 @@ export class QuestEffects {
     ),
         { dispatch: false }
     )
+
+    giveAnswer = createEffect(() => this.actions$.pipe(
+        ofType(questActions.giveAnswer)
+    ),
+        { dispatch: false }
+    )
 }
 
 @Injectable({

@@ -4,6 +4,7 @@ import { ErrorActions, questActions } from "./actions";
 import { addErrorToState } from "./helpers";
 import * as fromRouter from '@ngrx/router-store';
 import { routerReducer } from "@ngrx/router-store";
+import { Ask } from "../models/ask";
 
 export const questInitialState: QuestState = {
     askList: [],
@@ -38,8 +39,24 @@ export const questReducer = createReducer(
     on(questActions.showHideCorrect, (state): QuestState => ({
         ...state,
         hideCorrect: !state.hideCorrect
+    })),
+    on(questActions.giveAnswer, (state, { value, position }): QuestState => ({
+        ...state,
+        currAsk: setAnswer(state.currAsk, value, position),
+        loading: false
     }))
 )
+
+function setAnswer(ask: Ask | null, value: boolean, position: number): Ask | null {
+    if (!ask) return ask;
+    return {
+        ...ask,
+        answers: ask.answers.map((answer, index) =>
+            index === position ? { ...answer, selected: value } : answer
+        )
+    };
+}
+
 
 export interface StoreRootState {
     router: fromRouter.RouterReducerState<any>;

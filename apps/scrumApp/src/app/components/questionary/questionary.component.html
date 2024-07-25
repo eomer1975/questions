@@ -1,5 +1,9 @@
-<h2>questionario</h2>
-
-<p>Totale domande: {{ (askList$ | async)?.length}}</p>
+<div class="container">
+    <div class="questionario">
+        <h2>Questionario</h2>
+        <p>Totale domande: {{ (askList$ | async)?.length }}</p>
+        <a class="start-button" [routerLink]="['/quest/0']">Start</a>
+    </div>
+</div>
 
 

@@ -1,10 +1,23 @@
-<h2>Domanda {{(askId$ | async)}}</h2>
+
 <div class="container">
     <div class="centered-content">
+        <p>Ask: {{(askId$ | async)}}</p>
         <h3>{{ (ask$ | async)?.text}}</h3>
         <ul>
-            @for (answer of (ask$ | async)?.answers; track answer.text) {
-            <li><ng-container *ngIf="(hideCorrect$ | async) === false"><input type="checkbox" [checked]="answer.isTrue" /></ng-container> {{ answer.text }}</li>
+            @for (answer of (ask$ | async)?.answers; track answer.text; let idx = $index ) {
+            <li>
+                <ng-container *ngIf="(hideCorrect$ | async) === false">
+                    <input type="checkbox" [checked]="answer.isTrue" />
+                </ng-container> 
+                <ng-container *ngIf="(hideCorrect$ | async) === true">
+                    <input type="checkbox" [(checked)]="answer.selected" (change)="answerChanged($event, idx)"/>
+                </ng-container> 
+                {{ answer.text }}
+                <ng-container *ngIf="showCorrect">
+                    <span [class]="answer.selected === answer.isTrue?'ok': 'ko'">{{answer.selected === answer.isTrue?'OK': 'KO'}} </span>
+                </ng-container>
+            </li>
+
             } @empty {
             <li>Empty list of answers</li>
             }
@@ -13,6 +26,7 @@
             <ng-container *ngIf="askId$ | async as askId">
                 <div><a [routerLink]="['/quest', parseInt(askId.toString()) - 1]">Back</a></div>
                 <div (click)="hideAns()">Show/Hide answers</div>
+                <div (click)="check()">Check</div>
                 <div><a [routerLink]="['/quest', parseInt(askId.toString()) + 1]">Forward</a></div>
             </ng-container>
         </div>

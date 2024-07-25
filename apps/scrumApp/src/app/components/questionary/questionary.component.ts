@@ -4,11 +4,12 @@ import { Store } from '@ngrx/store';
 import { QuestState } from '../../store/state';
 import { questFeature } from '../../store/features';
 import { questActions } from '../../store/actions';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-questionary',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './questionary.component.html',
   styleUrl: './questionary.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

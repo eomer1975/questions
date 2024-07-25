@@ -11,7 +11,8 @@ export const questActions = createActionGroup({
         'Init Result': props<{ askList: AskList }>(),
         'Load Ask': props<{ id: number }>(),
         'Ask Result': props<{ ask: Ask }>(),
-        'Show Hide Correct': emptyProps()
+        'Show Hide Correct': emptyProps(),
+        'Give Answer': props<{ value: boolean, position: number }>()
     }
 })
 

@@ -1,7 +1,7 @@
 import { inject, Injectable } from '@angular/core';
 import { ApiService } from '../api-service/api-service.service';
 import { AskList } from '../../models/ask';
-import { map } from 'rxjs';
+import { map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,8 @@ export class QuestionsService {
 
   getAsk$(id: number){
     return this.getAskList$().pipe(
-      map(x=> x[id])
+      map(x=> x[id]),
+      tap(x=>x.answers.forEach(x=>x.selected = false))
     )
   }
 }

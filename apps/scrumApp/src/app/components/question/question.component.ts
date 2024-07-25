@@ -20,6 +20,9 @@ export class QuestionComponent implements OnInit, OnDestroy {
   private subscriptions: { [key: string]: any } = {};
   private readonly store = inject(Store<QuestState>)
   parseInt = parseInt;
+
+  showCorrect=false;
+
   constructor(){
     //this.store.dispatch(questActions.loadAsk({id: 0}))
   }
@@ -39,6 +42,16 @@ export class QuestionComponent implements OnInit, OnDestroy {
 
   hideAns(){
     this.store.dispatch(questActions.showHideCorrect());
+  }
+
+  check(){
+    this.showCorrect = true;
+  }
+
+  answerChanged(e: Event, index: number) {
+    console.log(e);
+    this.store.dispatch(questActions.giveAnswer({value: e.target && (e.target as any).checked, position: index}));
+
   }
 
   protected askId$ =this.store.select(questFeature.selectCurrId)
